@@ -8,7 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault();
         const {cedula, fullName, celular, correo, password, confirmedPassword} = obtenerDatosFormulario();
         const esValido = validarIdentidad(cedula) && validarNombre(fullName) && validarCelular(celular) && validarCorreo(correo) && validarContrasenna(password,confirmedPassword);
-        esValido ? manejarExito() : manejarError();
+        if (esValido) {
+            alert("Registro Exitoso");
+        }
 
     });
 
@@ -19,7 +21,7 @@ const obtenerDatosFormulario = () => {
     const cedula = document.getElementById("personId").value.trim();
     const fullName = document.getElementById("fullName").value.trim();
     const celular = document.getElementById("telefono").value.trim();
-    const correo = document.getElementById("telefono").value.trim();
+    const correo = document.getElementById("correo").value.trim();
     const password = document.getElementById("contrasenna").value.trim();
     const confirmedPassword = document.getElementById("confirmarContrasenna").value.trim();
 
@@ -58,7 +60,7 @@ const validarCorreo = (correo) => {
     const formatoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formatoValido.test(correo)) {
         alert('El correo electrónico debe tener el formato correcto (##@####.###)');
-        return true;
+        return false;
     }
     return true;
 };
@@ -77,14 +79,4 @@ const validarContrasenna = (password, confirmedPassword) => {
     return true;
 };
 
-
-
-const manejarExito = () => {
-    alert("Iniciar Sesion exitoso");
-    limpiarConsola(); /* CREAR METODO */
-};
-
-const manejarError = () => {
-    alert("Datos Invalidos");
-};
 

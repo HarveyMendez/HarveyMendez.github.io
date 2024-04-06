@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 header h1 {
@@ -13,7 +14,7 @@ header h1 {
 }
 
 nav ul {
-    background-color: rgb(0, 178, 178);
+    background-color: #094179;
     width: 100%;
     list-style-type: none;
     text-align: center;
@@ -22,7 +23,7 @@ nav ul {
 
 nav ul li {
     display: inline-block;
-    margin-right: 20px;
+    margin-right: 5px;
 }
 
 nav ul li:last-child {
@@ -31,7 +32,7 @@ nav ul li:last-child {
 
 nav ul li a {
     text-decoration: none;
-    color: #702828;
+    color: white;
     font-weight: hold;
     padding: 10px 20px;
     border-radius: 5px;
@@ -43,34 +44,171 @@ nav ul li a:hover {
 }
 
 
-#parte1 {
-    background-color: #702828;
+
+/* PARTE 1 DESCRIPCION DE LA PAGINA */
+.parte1 {
+    background-color: #094179;
+
+}
+
+.parte1 h1 {
+    color: white;
+    padding-top: 5%;
+    text-align: center;
+    font-size: 70px;
+}
+
+.parte1 p {
+    color: white;
+    padding: 5%;
+    padding-left: 16%;
+    padding-right: 16%;
+    padding-bottom: 100px;
+    font-size: 20px;
+}
+
+.imgInicio {
+    text-align: center;
+    padding-bottom: 60px;
+}
+
+.imgInicio img {
+    width: 60%;
+
 }
 
 
-#parte2 {
-    background-color: aqua;
+
+/* PARTE 2 SERVICIOS */
+.parte2 {
+    background-color: white;
+    padding: 50px 0 50px 0;
+}
+
+.parte2 h1 {
+    font-size: 40px;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.servicios {
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
     align-items: center;
 }
 
-.subparte1 {
+.texto-grande {
+    flex: 1;
+    margin-left: 20px;
+    margin: 40px;
+    padding: 10px;
+    width: fit-content;
+    /* ajusta el ancho del contenedor al contenido */
+}
+
+.texto-grande p {
+    font-size: 25px;
     padding: 20px;
+    transition: background-color 0.3s ease;
+}
+
+
+/* PARTE 3 SOBRE NOSOTROS */
+.parte3 {
+    background-color: white;
+}
+
+.parte3 h1 {
+    font-size: 40px;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.parte3 p {
+    font-size: 20px;
+    padding: 50px;
+}
+
+.aboutUs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.aboutUsImage {
+    padding: 40px;
+}
+
+/* PARTE 4 CONTACTENOS */
+.parte4 {
+    background-color: #094179;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.parte4 h1 {
+    color: white;
+    font-size: 40px;
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.redes-sociales a {
+    color: white;
+    font-size: 30px;
+    padding: 20px;
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+
+
+
+/* PARTE 5 PREGUNTAS FRECUENTES */
+.parte5 {
+    background-color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+.parte5 h1 {
+    padding-bottom: 40px;
+}
+
+.pregunta {
+    background-color: #094179;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-left: 250px;
+    margin-right: 250px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pregunta h3 {
+    color: white;
+}
+
+.pregunta p {
+    color: white;
 }
 
 
 
 
+
+
+
+/* CARRUSEL */
 .carousel {
     width: 45%;
     overflow: hidden;
-    border: 2px solid blue;
     margin: 2%;
     padding: 1%;
 }
 
 .slide {
+    text-align: center;
     display: none;
     opacity: 0;
     transition: opacity 0.5s ease;
@@ -82,6 +220,7 @@ nav ul li a:hover {
 }
 
 .slide img {
+
     width: 300px;
     height: 300px;
 }
@@ -97,46 +236,69 @@ nav ul li a:hover {
 }
 
 
-.texto-grande {
-    flex: 1; /* Para que ocupe el espacio restante */
-    margin-left: 20px; /* Ajusta el margen para separarlo del carrusel */
-    margin: 40px;
+
+
+
+/* Animacion Corazon */
+.contenedor1 {
+    min-height: 250px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.texto-grande h1 {
-    font-size: 24px; /* Tamaño del texto en grande */
-    /* Otros estilos que desees aplicar */
+.contenedor2 {
+    position: absolute;
+    margin-left: 50px;
+    margin-top: 50px;
+    animation: pulse 1s infinite;
+    
 }
 
-.texto-grande p {
-    font-size: 16px; /* Tamaño del texto más pequeño */
-    /* Otros estilos que desees aplicar */
+
+#pulso {
+    position: relative;
+    width: 100px;
+    height: 90px;
+}
+
+#pulso:before,
+#pulso:after {
+    position: absolute;
+    content: "";
+    left: 50px;
+    top: 0;
+    width: 50px;
+    height: 80px;
+    background: #aa0000;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+    animation: pulsecolor 1s infinite;
+}
+
+#pulso:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+    animation: pulsecolor 1s infinite;
+}
+
+@keyframes pulse {
+    10% {
+        transform: scale(1.1)
+    }
+}
+
+@keyframes pulsecolor {
+    10% {
+        background: #dd0000
+    }
 }
 
 
 
-button.pulse-animation {
-    font-size: 1em;
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    animation: pulse 2s infinite;
-  }
-  
-  @keyframes pulse {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.1);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
 
 
 
@@ -157,7 +319,7 @@ footer {
 footer p {
     margin-bottom: 10px;
     color: #fff;
-    
+
 }
 
 footer a {
@@ -169,4 +331,3 @@ footer a {
 footer a:hover {
     color: #f2f2f2;
 }
-

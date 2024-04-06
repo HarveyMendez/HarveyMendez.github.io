@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Citas Médicas</title>
     <link rel="stylesheet" type="text/css" href="../css/agendaCitas.css">
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
-    <script src="../js/agendaCitas/agendaCitas.js"></script>
+    
+    
 
 
 
@@ -16,18 +16,17 @@
 <body>
 
     <header>
-        <h1>Sistema de Citas Médicas </h1>
         <nav>
             <ul>
                 <li><a href="../index.html">Inicio</a></li>
                 <li><a href="inicioSesion.html">Inicio de Sesión</a></li>
                 <li><a href="registro.html">Registro</a></li>
-                <li><a href="servicios.html">Servicios</a></li>
                 <li><a href="busquedaMedicos.html">Busqueda de Medicos</a></li>
                 <li><a href="agendaCitas.html">Agenda de Citas</a></li>
-                <li><a href="contactenos.html">Contactenos</a></li>
-                <li><a href="preguntasFrecuentes.html">Preguntas Frecuentes</a></li>
-                <li><a href="terminosUso.html">Terminos de Uso</a></li>
+                <li><a href="../index.html#parte2">Servicios</a></li>
+                <li><a href="../index.html#parte3">Sobre Nosotros</a></li>
+                <li><a href="../index.html#parte4">Contactenos</a></li>
+                <li><a href="../index.html#parte5">Preguntas Frecuentes</a></li>
             </ul>
         </nav>
     </header>
@@ -36,27 +35,24 @@
     <div class="contenido">
 
         <div id="calendar"></div>
+        <div class="navigation">
+            <button id="prevBtn">Anterior</button>
+            <button id="nextBtn">Siguiente</button>
+          </div>
+        <script src="../js/agendaCitas/agendaCitas.js"></script>
 
-        <div id="modal" class="modal">
+
+        <div id="eventForm" class="modal">
             <div class="modal-content">
               <span class="close">&times;</span>
-              <h2>Agregar Actividad</h2>
-              <form id="modal-form">
-                <label>Hora:</label>
-                <input type="time" id="hora" name="hora" required>
-                <label>Persona:</label>
-                <select id="persona" name="persona" required>
-                  <!-- Aquí puedes incluir opciones para cada persona -->
-                  <!-- Por ejemplo: -->
-                  <option value="1">Juan</option> 
-                  <option value="2">María</option>
-                  <option value="3">Carlos</option> 
-                </select>
-                <label>Lugar:</label>
-                <input type="text" id="lugar" name="lugar" required>
-                <button type="submit">Guardar</button>
-              </form>
+              <h2>Agregar Cita</h2>
+              <input type="text" id="eventName" placeholder="">
+              <input type="time" id="eventTime" placeholder="Hora del evento">
+              <button id="saveEvent">Guardar</button>
             </div>
+            
+            <ul id="eventList"></ul>
+
           </div>
 
 
@@ -66,10 +62,7 @@
 
 
     <footer>
-        <p>Siguenos en redes sociales</p>
-
-        <p href=""> Facebook</a>
-
+        
         <p> Derecho de autor 2024</p>
 
     </footer>

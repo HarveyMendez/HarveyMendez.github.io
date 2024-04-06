@@ -47,7 +47,7 @@ const validarContrasenna = (password) => {
 
 const manejarExito = () => {
     alert("Iniciar Sesion exitoso");
-    limpiarConsola(); /* CREAR METODO */
+    limpiarConsola(); 
 };
 
 const manejarError = () => {

@@ -1,9 +1,9 @@
 // Array de perfiles de ejemplo
 const perfiles = [
-  { id: 1, nombre: "Juan", edad: 30, ciudad: "Buenos Aires" },
-  { id: 2, nombre: "María", edad: 25, ciudad: "Madrid" },
-  { id: 4, nombre: "Roberto", edad: 26, ciudad: "Madrid" },
-  { id: 3, nombre: "Carlos", edad: 35, ciudad: "Ciudad de México" }
+  { id: 1, identificacion: 303647322 , nombre: "Juan", especialidad: "Cirugia", ciudad: "Puntarenas" },
+  { id: 2, identificacion: 303493122 , nombre: "María", especialidad: "Medicina Aeroespacial", ciudad: "Guanacaste" },
+  { id: 4, identificacion: 303443022 , nombre: "Roberto", especialidad: "Medicina de Rehabilitación", ciudad: "Guanacaste" },
+  { id: 3, identificacion: 303247322 , nombre: "Carlos", especialidad: "Cirugia", ciudad: "San José" }
 ];
 
 const perfilesContainer = document.getElementById("perfiles");
@@ -22,7 +22,8 @@ function mostrarPerfiles(personas, criterioOrden) {
     const perfilHTML = `
       <div class="perfil">
         <h2>${persona.nombre}</h2>
-        <p>Edad: ${persona.edad}</p>
+        <p>Identificacion: ${persona.identificacion}</p>
+        <p>Especialidad: ${persona.especialidad}</p>
         <p>Ciudad: ${persona.ciudad}</p>
         <a href="perfilMedico.html?id=${persona.id}">Ver más información</a>
       </div>
@@ -34,8 +35,9 @@ function mostrarPerfiles(personas, criterioOrden) {
 function buscarPerfiles(termino, criterioOrden) {
   const resultados = perfiles.filter(persona =>
     persona.nombre.toLowerCase().includes(termino.toLowerCase()) ||
-    persona.edad.toString().includes(termino) ||
-    persona.ciudad.toLowerCase().includes(termino.toLowerCase())
+    persona.especialidad.toLowerCase().includes(termino.toLowerCase()) ||
+    persona.ciudad.toLowerCase().includes(termino.toLowerCase()) ||
+    persona.identificacion.toString().includes(termino) // Convertimos el número a cadena de texto para buscar
   );
   mostrarPerfiles(resultados, criterioOrden);
 }
@@ -51,5 +53,5 @@ ordenSelect.addEventListener("change", () => {
   buscarPerfiles(terminoBusqueda, criterioOrden);
 });
 
-// Mostrar perfiles al cargar la página
-mostrarPerfiles(perfiles, "nombre");
+
+mostrarPerfiles(perfiles, "nombre"); // al cargar la pagina
