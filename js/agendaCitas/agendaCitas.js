@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var currentMonth = new Date().getMonth();
     var currentYear = new Date().getFullYear();
 
+    const optionsSelect = document.getElementById("perfiles");
+    const options = ["Juan", "Maria", "Roberto", "Carlos"]; // Lista de medicos
 
     // Renderizar el calendario
     renderCalendar(currentMonth, currentYear);
@@ -111,6 +113,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var prevButton = document.getElementById('prevBtn');
     prevButton.addEventListener('click', prevMonth);
+
+
+    options.forEach((option) => {
+        const optionElement = document.createElement("option");
+        optionElement.text = option;
+        optionsSelect.add(optionElement);
+    });
 
 
 });

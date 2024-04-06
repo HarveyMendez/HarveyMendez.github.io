@@ -46,12 +46,13 @@
             <div class="modal-content">
               <span class="close">&times;</span>
               <h2>Agregar Cita</h2>
-              <input type="text" id="eventName" placeholder="">
-              <input type="time" id="eventTime" placeholder="Hora del evento">
+              <label>Seleccione un Medico: </label><select id="perfiles" >
+              </select>
+              <label>Seleccione una hora: </label><input type="time" id="eventTime" placeholder="Hora del evento">
               <button id="saveEvent">Guardar</button>
             </div>
             
-            <ul id="eventList"></ul>
+            <ul id="eventList"></ul> <!-- lista de eventos en el dia seleccionado -->
 
           </div>
 
