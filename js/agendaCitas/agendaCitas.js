@@ -4,11 +4,12 @@ document.addEventListener('DOMContentLoaded', function () {
     var eventForm = document.getElementById('eventForm');
     var closeBtn = document.querySelector('.close');
     var saveBtn = document.getElementById('saveEvent');
-    var eventNameInput = document.getElementById('eventName');
+    var eventNameInput = document.getElementById('perfiles');
     var eventTimeInput = document.getElementById('eventTime');
     var currentMonth = new Date().getMonth();
     var currentYear = new Date().getFullYear();
 
+    var selectedOption = null; // Variable para guardar la opción seleccionada
     const optionsSelect = document.getElementById("perfiles");
     const options = ["Juan", "Maria", "Roberto", "Carlos"]; // Lista de medicos
 
@@ -43,17 +44,22 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
+    // Funcion para saber la opcion seleccionada
+    optionsSelect.addEventListener("change", (event) => {
+        selectedOption = event.target.value; // Guardar la opción seleccionada en la variable
+      });
 
 
     // Función para mostrar el modal
     function openEventModal(day, month, year, cuadrado) {
         eventForm.style.display = 'block';
         saveBtn.onclick = function () {
-            var eventName = eventNameInput.value;
+            var eventName = selectedOption;
             var eventTime = eventTimeInput.value;
             if (eventName && eventTime) {
+                alert('Cita Añadida');
                 cuadrado.classList.add('event-added'); // Para cambiar el color del cuadrado del dia
-                addEventToList(day, month, year, eventName, eventTime);
+                // Añadir la cita a una lista ?
                 eventForm.style.display = 'none';
             } else {
                 alert('Por favor, complete todos los campos.');
@@ -115,6 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
     prevButton.addEventListener('click', prevMonth);
 
 
+    // Para llenar el select con los nombres de medicos
     options.forEach((option) => {
         const optionElement = document.createElement("option");
         optionElement.text = option;
